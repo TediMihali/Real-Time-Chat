@@ -4,7 +4,7 @@
 
 {% for chatroom in chatrooms %}
 <div class="shadow-lg p-10 m-10 bg-blue-700 rounded-lg text-white">
-    <a href="{% url 'chatroom'  chatroom.slug %}">{{ chatroom.name }}</a>
+    <a href="{% url 'chatapp:chatroom'  chatroom.slug %}">{{ chatroom.name }}</a>
 </div>
 {% endfor %}
 

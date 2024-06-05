@@ -15,16 +15,20 @@
                 <span class="self-center text-4xl font-semibold">Chats App</span>
             </a>
 
-            <div class="w-full block w-auto">
-                <ul class="flex flex-row p-4 mt-4 border rounded-lg border-grau-100 bg-blue-50">
-                    <li>
-                        <a class="block py-2 pl-3 pr-4 rounded bg-blue-700 text-white" href="">Rooms</a>
-                    </li>
-                    <li>
-                        <a class="block py-2 pl-3 pr-4 rounded " href="">About</a>
-                    </li>
-                </ul>
-
+            <div class="w-full block w-auto ">
+                    <ul class="flex flex-row p-4 mt-4 border rounded-lg border-gray-100 bg-blue-100">
+                        <li>
+                            <a class="block py-2 pl-3 pr-4 rounded bg-blue-700 text-white hover:bg-blue-500" href='{% url "chatapp:index" %}'>Rooms</a>
+                        </li>
+                        {% if request.user.is_authenticated %}
+                            <li>
+                                <span class="block py-2 pl-3 pr-4 rounded"> Hello, {{request.user.username}} </span>
+                            </li>    
+                            <li>
+                                <a class="block py-2 pl-3 pr-4 rounded bg-red-400" href="{% url 'users:logout' %}">Logout</a>
+                            </li>   
+                        {% endif %}   
+                    </ul>
             </div>
         </div>
 
